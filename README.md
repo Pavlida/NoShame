@@ -3,7 +3,7 @@ In order to launch the project you need to download the code and choose the outs
 
 After building and running the project you need to load a menu by pressing "Edit Menu" in the menu bar, then "Load new menu". Your menu needs to be separated by ';' and have at least three columns: Item, Category, Calories.
 
-After that you can sort, the menu by pressing on the headers, however if you press on the header "Category" a list of categories will appear an you can check whick categories you want to be visible. You can also search an utem by it's name, using the search bar and the button search. Alternatively, you can press "Enter".
+After that you can sort, the menu by pressing on the headers, however if you press on the header "Category" a list of categories will appear an you can check whick categories you want to be visible. You can also search an utem by it's name, using the search bar and the button search. Alternatively, you can press "Enter". If the bar is empty and you activate the search the whole menu is shown.
 
 You can interact with the table. By right-clicking a context menu opens up, from where you can add an item to "Your Meal", remove an item from the menu, and view nutrients of the item in a separate window.
 
