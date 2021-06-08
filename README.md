@@ -9,8 +9,8 @@ You can interact with the table. By right-clicking a context menu opens up, from
 
 You can also change the data of an item, despite it's category and namem, however in order for them to take placed outside the table you need to click "View item details" to see the updated nutrients or delete it from the meal and add it there again if you want your data for the meal to refresh.
 
-By pressing the nutrients button nera the total calories you get the nutrient indormation for the entire meal.
+By pressing the nutrients button near the total calories you get the nutrient indormation for the entire meal.
 
-Changing the amount of an item in the meal or adding new items to it immediately changes the nutrient values of the meal so you don't have to reopen the window.
+Changing the amount of an item in the meal or adding new items to it immediately changes the nutrient values of the meal so you don't have to reopen the window. If you try to add an item that already is in the meal, it will just increase it's quantity by 1 if possible.
 
 The widget on the bottom shows the amount of time you need to walk, run or workout in order to burn all the calories from the meal you can switch the modes by pressing the tabs
