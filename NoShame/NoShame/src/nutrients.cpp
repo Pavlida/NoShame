@@ -1,4 +1,4 @@
-#include "Nutrients.h"
+#include "nutrients.h"
 #include "ui_Nutrients.h"
 
 #include <QFormLayout>
