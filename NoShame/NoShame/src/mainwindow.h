@@ -40,7 +40,7 @@ private:
 
     QMap<QMessageBox*, bool> showError;
 
-    const int mealLimit = 11; //based on fullscreen data
+    const int mealLimit = 10; //based on fullscreen data
     QList<QString> inMeal; //name
 
     void setUpError(QMessageBox* error);
