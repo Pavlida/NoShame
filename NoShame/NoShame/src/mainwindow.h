@@ -65,6 +65,8 @@ private slots:
 
     void on_toolButton_clicked();
 
+    void on_actionSave_Meal_data_triggered();
+    
 signals:
     void itemAlreadyInMenu(QString);
 };
