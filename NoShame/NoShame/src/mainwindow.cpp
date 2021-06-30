@@ -244,13 +244,14 @@ void MainWindow::addMealItem(QModelIndex i)
         int index = ui->MealLayout->count() - 3;
         if(index == mealLimit - 1)
         {
-            executeError(mealLimitReached, "Sorry, but you have reached the item limit of a single meal. You can't add any more items without deleting some of the previous ones");
+            executeError(mealLimitReached, "Sorry, but you have reached the item limit of a single meal. "
+                                        "You can't add any more items without deleting some of the previous ones");
         }
         else
         {
             QFrame* frame = new QFrame(ui->Meal);
             frame->setStyleSheet("background-color: rgb(106, 4, 15);");
-            frame->setFixedHeight(52); // to fit fullscreen properly
+            frame->setFixedHeight(54); // to fit fullscreen properly
 
             QHBoxLayout* itemL = new QHBoxLayout(frame);
 
@@ -305,6 +306,7 @@ void MainWindow::addMealItem(QModelIndex i)
             itemL->addWidget(calories);
 
             QToolButton* deleteItem = new QToolButton(frame); // button to make the item dissapear from your meal
+            deleteItem->setStyleSheet("color: rgb(255, 250, 244);");
             deleteItem->setText("X");
 
             connect(deleteItem, &QToolButton::clicked, [this, calories, frame, itemName]()
@@ -359,6 +361,42 @@ void MainWindow::on_toolButton_clicked()
     {
         nutrients->displayMeal();
         nutrients->show();
+    }
+}
+
+void MainWindow::on_actionSave_Meal_data_triggered()
+{
+    if (inMeal.isEmpty())
+        return;
+    QString path = QFileDialog::getSaveFileName();
+    QFile saveFile(path);
+    if(!saveFile.open(QFile::WriteOnly | QFile::Text))
+        executeError(cantOpen, "Not able to open the file from the path");
+
+    QTextStream out(&saveFile);
+    out << "Qty;";
+    int columns = McMenu->columnCount();
+    for (int j = 0; j < columns; ++j)
+    {
+        out << McMenu->headerData(j, Qt::Horizontal).toString();
+        if (j != columns - 1)
+            out << ';';
+    }
+    out << '\n';
+
+    const QList<QList<QVariant>>* meal = nutrients->getMealItems();
+    for (const QList<QVariant>& item : *meal)
+    {
+        QFrame *it = ui->Meal->findChild<QFrame*>(item.at(McMenu->nameColumn).toString());
+        QSpinBox* Qty = it->findChild<QSpinBox*>(item.at(McMenu->nameColumn).toString() + "Qty");
+        out << Qty->value() <<';';
+        for(int i =0; i < item.size(); ++i)
+        {
+            out << item.at(i).toString();
+            if(i != item.size() - 1)
+                out << ';';
+        }
+        out <<'\n';
     }
 }
 
