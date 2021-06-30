@@ -33,6 +33,8 @@ public:
     void addMealItem(const QList<QVariant>& item);
     void deleteMealItem(int index);
 
+    const QList<QList<QVariant>>* getMealItems() const {return &meal;}
+    
     void changeQuantity(unsigned short index, unsigned short value);
 private:
     Ui::Nutrients *ui;
